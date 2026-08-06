@@ -4,10 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Embedded Page</title>
-    <style>
+  <!-- <style>
         body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
         iframe { border: none; width: 100%; height: 100%; }
-    </style>
+    </style>-->
+
+<style>
+  /* 1. The Viewport: Defines the visible window size */
+  .crop-container {
+    width: 400px;          /* Visible area width */
+    height: 300px;         /* Visible area height */
+    overflow: hidden;      /* Hide everything outside the window */
+    position: relative;
+    border: 2px solid #333;
+  }
+
+  /* 2. The Frame: Shifted to expose the target section */
+  .crop-container iframe {
+    position: absolute;
+    
+    /* Offsets: Negative values push the page UP and LEFT */
+    top: -200px;           /* Hide top 200px of the target page */
+    left: -150px;          /* Hide left 150px of the target page */
+    
+    /* Full target page size (ensures original site layout doesn't break) */
+    width: 1200px;         
+    height: 1000px;        
+    border: none;
+  }
+</style>
+
+<div class="crop-container">
+  <iframe src="https://example.com" scrolling="no"></iframe>
+</div>
+
+
+
+
+    
 </head>
 <body>
     <iframe src="https://www.simgrap.com/pages/worksdetil/worksDetil?itemId=wd_8CmKrUR6n2FJyo6ooqlzCHvRhHckWN_AXm4qCUyT9_I&detailSource=workbench&isMyself=1&showType=2&auditType=3&ifPublicly=false"></iframe>
